@@ -17,6 +17,7 @@ class Hablaba
     #     - optional, defaults to :present
     #     - options: :present, :preterite, :imperfect
     def conjugate(pronoun, verb, tense = :present)
+      pronoun, verb = pronoun.downcase, verb.downcase
       case tense
       when :present
         conjugate_in_the_present(pronoun, verb)

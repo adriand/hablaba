@@ -39,4 +39,8 @@ class HablabaTest < Minitest::Test
     assert_equal "abría", Hablaba.conjugate("yo", "abrir", :imperfect)
   end
 
+  def test_case_insensitivity
+    assert_equal "hablo", Hablaba.conjugate("YO", "Hablar")
+  end
+
 end

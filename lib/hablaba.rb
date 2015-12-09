@@ -25,6 +25,14 @@ class Hablaba
         conjugate_in_the_preterite(pronoun, verb)
       when :imperfect
         conjugate_in_the_imperfect(pronoun, verb)
+      when :present_subjunctive
+        conjugate_in_the_present_subjunctive(pronoun, verb)
+      when :imperfect_subjunctive
+        conjugate_in_the_imperfect_subjunctive(pronoun, verb)
+      when :conditional
+        conjugate_in_the_conditional(pronoun, verb)
+      when :future
+        conjugate_in_the_future(pronoun, verb)
       else
         # TODO: raise error
       end
@@ -99,6 +107,33 @@ class Hablaba
 
     def conjugate_er_ir_in_the_imperfect(pronoun, root_of_verb)
       root_of_verb + %W[ía ías ía íamos íais ían][pronoun_index(pronoun)]
+    end
+
+    # normally you would actually need to start by getting the verb in the first-person
+    # present, but since this only handles regular verbs, this is easy enough to handle
+    # with this method
+    def conjugate_in_the_present_subjunctive(pronoun, verb)
+      verb_ending, root = get_verb_ending_and_root(verb)
+      if verb_ending == 'ar'
+        root + %W[e es e emos éis en][pronoun_index(pronoun)]
+      else # er and ir are the same
+        root + %W[a as a amos áis an][pronoun_index(pronoun)]
+      end
+    end
+        
+    def conjugate_in_the_imperfect_subjunctive(pronoun, verb)
+      verb_ending, root = get_verb_ending_and_root(verb)
+      # get the third person preterite
+      third_person_root = conjugate_in_the_preterite('ellos', verb).gsub(/on\z|an\z/i, '')
+      third_person_root + %W[a as a amos ais an][pronoun_index(pronoun)]
+    end
+
+    def conjugate_in_the_conditional(pronoun, verb)
+      verb + %W[ía ías ía íamos íais ían][pronoun_index(pronoun)]
+    end
+    
+    def conjugate_in_the_future(pronoun, verb)
+      verb + %W[é ás á emos éis án][pronoun_index(pronoun)]
     end
 
   end

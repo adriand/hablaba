@@ -7,8 +7,10 @@ Current tenses supported:
 * present (I *speak* - *hablo*)
 * preterite (I *spoke* - *hablé*)
 * imperfect (I *used to speak* - *hablaba*)
-
-Only the indicative mood is supported at the moment, but more moods (and tenses) are on the way.
+* present_subjunctive (I hope *that I speak* - *hable*)
+* imperfect_subjunctive (I hoped *that I spoke* - *hablara*)
+* conditional (I *would speak* - *hablaría*)
+* future (I *will speak* - *hablaré*)
 
 ## Usage
 
@@ -24,6 +26,6 @@ Supported pronouns:
 
 Supported tenses:
 
-    :present :preterite :imperfect
+    :present :preterite :imperfect :present_subjunctive :imperfect_subjunctive :conditional :future
 
 

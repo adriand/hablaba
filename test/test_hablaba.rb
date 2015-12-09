@@ -39,6 +39,25 @@ class HablabaTest < Minitest::Test
     assert_equal "abría", Hablaba.conjugate("yo", "abrir", :imperfect)
   end
 
+  def test_present_subjunctive
+    assert_equal "hable", Hablaba.conjugate("yo", "hablar", :present_subjunctive)
+  end
+
+  def test_imperfect_subjunctive
+    assert_equal "hablara", Hablaba.conjugate("yo", "hablar", :imperfect_subjunctive)
+    assert_equal "rompieras", Hablaba.conjugate("tú", "romper", :imperfect_subjunctive)
+  end
+  
+  def test_conditional
+    assert_equal "hablaría", Hablaba.conjugate("yo", "hablar", :conditional)
+    assert_equal "romperías", Hablaba.conjugate("tú", "romper", :conditional)
+  end
+  
+  def test_future
+    assert_equal "hablaré", Hablaba.conjugate("yo", "hablar", :future)
+    assert_equal "romperás", Hablaba.conjugate("tú", "romper", :future)
+  end
+
   def test_case_insensitivity
     assert_equal "hablo", Hablaba.conjugate("YO", "Hablar")
   end

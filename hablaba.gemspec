@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'hablaba'
-  s.version     = '0.0.2'
-  s.date        = '2014-12-31'
+  s.version     = '0.0.3'
+  s.date        = '2015-12-08'
   s.summary     = "Hablaba Spanish verb conjugator"
   s.description = "Hablaba conjugates regular Spanish verbs in multiple tenses"
   s.authors     = ["Adrian Duyzer"]

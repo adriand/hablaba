@@ -46,6 +46,8 @@ class HablabaTest < Minitest::Test
   def test_imperfect_subjunctive
     assert_equal "hablara", Hablaba.conjugate("yo", "hablar", :imperfect_subjunctive)
     assert_equal "rompieras", Hablaba.conjugate("tú", "romper", :imperfect_subjunctive)
+    assert_equal "debiéramos", Hablaba.conjugate("nosotros", "deber", :imperfect_subjunctive)
+    assert_equal "habláramos", Hablaba.conjugate("nosotros", "hablar", :imperfect_subjunctive)
   end
   
   def test_conditional

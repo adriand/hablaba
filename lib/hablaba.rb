@@ -123,8 +123,12 @@ class Hablaba
         
     def conjugate_in_the_imperfect_subjunctive(pronoun, verb)
       verb_ending, root = get_verb_ending_and_root(verb)
-      # get the third person preterite
+      # get the third person preterite (e.g. rompieron) and then remove the on (rompier)
       third_person_root = conjugate_in_the_preterite('ellos', verb).gsub(/on\z|an\z/i, '')
+      if pronoun == 'nosotros'
+        third_person_root.gsub!(/ar\z/i, 'ár')
+        third_person_root.gsub!(/er\z/i, 'ér')
+      end
       third_person_root + %W[a as a amos ais an][pronoun_index(pronoun)]
     end
 

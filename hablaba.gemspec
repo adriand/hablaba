@@ -16,6 +16,12 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 3.1"
 
+  # Set explicitly rather than left to default: RubyGems before 4.0 writes a
+  # blank original_platform into the packaged metadata, which rubygems.org
+  # rejects on push ("Platform can't be blank"). Assigning it keeps the gem
+  # publishable no matter which RubyGems builds it. See rake validate_gem.
+  spec.platform = Gem::Platform::RUBY
+
   spec.metadata = {
     "source_code_uri" => spec.homepage,
     "bug_tracker_uri" => "#{spec.homepage}/issues",
